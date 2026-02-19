@@ -1,12 +1,10 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
 //Route::get('/', function () { return view('welcome'); });
 
 Route::get('/hello', function () {
     return 'Hello World'; });
-// Route::get('/hello', [WelcomeController::class,'hello']); 
+
 Route::get('mahasiswa', function ($id) { }); 
 Route::post('mahasiswa', function ($id) { }); 
 Route::put('mahasiswa', function ($id) { }); 
@@ -46,8 +44,11 @@ Route::get(	'/user/{name?}', function ($name=null) {
 Route::get(	'/user/{name?}', function ($name='John') { 
     return 'Nama saya '.$name; }); 
 
+Route::get('/greeting', function () {  	
+    return view('blog.hello', ['name' => 'Bagas Ardiansa Putra']); }); 
+
 use App\Http\Controllers\WelcomeController;
-Route::get('/hello', [WelcomeController::class, 'hello']);
+Route::get('/greeting', [WelcomeController::class, 'greeting']); 
 
 use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'index']);
